@@ -27,6 +27,7 @@ phases:
     on-failure: ABORT
     commands:
       - echo terraform execution started on `date`
+      - terraform login > yes > OaopQPjkw3nYDA.atlasv1.z6eLKGJSDyW2iNVvCrHyZ9EobowSO1wbPKnjknIMyk4aKl5S1yHUYob4KGeQlJGdwdU
   build:
     on-failure: ABORT
     commands:
@@ -35,9 +36,6 @@ phases:
       - ls -lrt "$CODEBUILD_SRC_DIR/terraform-manifests"
       - terraform --version
       - cd "$CODEBUILD_SRC_DIR/terraform-manifests/$SDLC_ENV"
-      - terraform login
-      - yes
-      - OaopQPjkw3nYDA.atlasv1.z6eLKGJSDyW2iNVvCrHyZ9EobowSO1wbPKnjknIMyk4aKl5S1yHUYob4KGeQlJGdwdU
       # - terraform init -input=false --backend-config=dev.conf
       - terraform init
       - terraform validate
