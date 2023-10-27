@@ -9,9 +9,11 @@
 # }
 
 terraform {
-  backend "s3" {
-    bucket = "aws-devops-testbucket"
-    key    = "terraformstates/prod.tfstate"
-    region = "us-east-1"
+  cloud {
+    organization = "scoopen"
+
+    workspaces {
+      name = "prod_cb"
+    }
   }
 }
